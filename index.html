@@ -4,7 +4,7 @@
 	 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body bgcolor="#E0E0E0">
-	<form class="testform" onsubmit="sendData();" method="post">
+	<form class="testform" onsubmit="return sendData();">
 		<input name="user" id="user" type="text">
 		<input type="submit" value="Submit">
 	</form>
@@ -30,6 +30,8 @@
 			
 			firebase.database().ref("demo").set({
 				"username": data
+			
+			return false
 			});
 		}
 	</script>
