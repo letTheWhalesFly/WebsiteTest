@@ -1,7 +1,37 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<head>
+	 <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body bgcolor="#E0E0E0">
+	<form class="testform" onsubmit="sendData();" method="post">
+		<input name="user" id="user" type="text">
+		<input type="submit" value="Submit">
+	</form>
+		
+	<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyBwKob2rTQSdyLL1F-LSWcDzwmqjcP_-QY",
+			authDomain: "dynamicwebsitetest.firebaseapp.com",
+			databaseURL: "https://dynamicwebsitetest.firebaseio.com",
+			projectId: "dynamicwebsitetest",
+			storageBucket: "dynamicwebsitetest.appspot.com",
+			messagingSenderId: "8387331550"
+		};
+		
+		firebase.initializeApp(config);
+	</script>
+	<script>
+		function sendData(){
+			var data = document.getElementById("user").value;
+			alert(data);
+			
+			firebase.database().ref("demo").set({
+				"username": data
+			});
+		}
+	</script>
 </body>
 </html>
