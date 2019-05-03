@@ -1,40 +1,34 @@
-<!DOCTYPE html>
 <html>
-<head>
-	 <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body bgcolor="#E0E0E0">
-	<form class="testform" onsubmit="return sendData();">
-		<input name="user" id="user" type="text">
-		<input type="submit" value="Submit">
-	</form>
+	<style type="text/css">
+		#screen {
+			top: 100;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
 		
-	<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+		#test {
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100px;
+			text-align: center;
+			background-color: lightgray;
+		}
+	</style>
+	<iframe id="screen" src="https://wiki.selfhtml.org/wiki/HTML/Frames"></iframe>
+	<form id="test" onsubmit="return search()">
+		<br>Enter address of website to totally not undergo the VPN-filter.<br>
+		<input type="text" id="i"></input><br><br>
+		<input type="submit" value="Submit"></input>
+	</div>
 	<script>
-		// Initialize Firebase
-		var config = {
-			apiKey: "AIzaSyBwKob2rTQSdyLL1F-LSWcDzwmqjcP_-QY",
-			authDomain: "dynamicwebsitetest.firebaseapp.com",
-			databaseURL: "https://dynamicwebsitetest.firebaseio.com",
-			projectId: "dynamicwebsitetest",
-			storageBucket: "dynamicwebsitetest.appspot.com",
-			messagingSenderId: "8387331550"
-		};
-		
-		firebase.initializeApp(config);
-	</script>
-	<script>
-		function sendData(){
-			var data = document.getElementById("user").value;
-			alert(data);
+		function search(){
+			var con = document.getElementById("i").value;
+			var f = document.getElementById("screen");
+			f.src = con;
 			
-			firebase.database().ref("demo").set({
-				"username": data
-			
-			});
-		
 			return false
 		}
 	</script>
-</body>
 </html>
